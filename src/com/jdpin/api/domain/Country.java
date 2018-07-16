@@ -1,4 +1,4 @@
-package com.websystique.springmvc.domain;
+package com.jdpin.api.domain;
 
 public class Country{
 	

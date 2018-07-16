@@ -1,12 +1,12 @@
-package com.websystique.springmvc.configuration;
+package com.jdpin.api.configuration;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class HelloWorldInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class JDPINWebnitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 	 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[] { HelloWorldConfiguration.class };
+        return new Class[] { JDPINAPIConfiguration.class };
     }
   
     @Override
