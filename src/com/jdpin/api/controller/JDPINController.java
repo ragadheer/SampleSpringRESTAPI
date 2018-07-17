@@ -14,6 +14,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -28,7 +29,7 @@ import com.jdpin.api.domain.Country;
 
 @RestController
 public class JDPINController {
-
+	public static final Logger logger = Logger.getLogger(JDPINController.class);
 	private static final int BUFFER_SIZE = 4096;
 
 	private String filePath = "C:/JDPower/JDPIN.txt";
@@ -83,7 +84,7 @@ public class JDPINController {
 
 	@RequestMapping(value = "/textOutput", produces = MediaType.TEXT_PLAIN_VALUE)
 	public String heartbeat2() {
-		// logger.info("Received heartbeat!");
+		 logger.debug("heartbeat2 started()");
 		return "JDPower|PIN|Service";
 	}
 
@@ -156,6 +157,7 @@ public class JDPINController {
 
 	@RequestMapping(value = "/downloadFile", method = RequestMethod.GET)
 	public void downloadFile(HttpServletResponse response) throws IOException {
+		logger.debug("downloadFile() started");
 		// construct the complete absolute path of the file
 		writeRecordsIntoFile();
 		String fullPath = filePath;
